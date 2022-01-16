@@ -7,4 +7,3 @@ fun createStorage(): Storage {
         throw Exception("Only sql storage is supported")
     }
 }
-

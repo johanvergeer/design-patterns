@@ -6,5 +6,5 @@ import design_patterns.decorator.CondimentDecorator
 class Mocha(beverage: BeverageItem) : CondimentDecorator(beverage) {
     override fun condimentDescription() = "Mocha"
 
-    override val condimentCost =  0.20
+    override val condimentCost = 0.20
 }

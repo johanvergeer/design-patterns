@@ -13,7 +13,6 @@ fun main() {
     printHtml(body)
 }
 
-
 fun printHtml(html: HtmlElement, indent: Int = 0) {
     addIndent(indent)
     println(html.openingTag)
@@ -28,7 +27,6 @@ fun printHtml(html: HtmlElement, indent: Int = 0) {
     addIndent(indent)
     println(html.closingTag)
 }
-
 
 private fun addIndent(indent: Int) {
     print("".padStart(indent))

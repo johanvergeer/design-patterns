@@ -3,7 +3,6 @@ package solid_principles.single_responsibility_principle.after
 class ProductRepository {
     private val products = mutableSetOf<Product>()
 
-
     fun add(product: Product) {
         if (products.contains(product)) {
             throw Exception("Product with id '${product.id}' already exists")

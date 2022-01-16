@@ -1,6 +1,5 @@
 package solid_principles.open_closed_principle.before
 
-
 fun acceptCash(total: Money) = Payment(total)
 
 fun checkOut(receipt: Receipt, items: Iterable<Item>) {

@@ -6,7 +6,7 @@ interface MoneyHandler {
     fun addMoney(money: Iterable<Money>)
 }
 
-class MoneyHandlerImpl(money: Collection<Money>): MoneyHandler {
+class MoneyHandlerImpl(money: Collection<Money>) : MoneyHandler {
     val money = money.toMutableList()
 
     override fun getMoney(amount: Double): List<Money> {

@@ -1,3 +1,3 @@
 package design_patterns.decorator
 
-abstract class Beverage: BeverageItem
+abstract class Beverage : BeverageItem

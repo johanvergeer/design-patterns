@@ -1,8 +1,8 @@
-package design_patterns.command.old.party
+package design_patterns.command.remote
 
-//
-// This is the invoker
-//
+/**
+ * This is the invoker
+ */
 class RemoteControl {
     private val onCommands = this.initiateCommands()
     private val offCommands = this.initiateCommands()
@@ -25,15 +25,14 @@ class RemoteControl {
     }
 
     override fun toString(): String {
-        val stringBuffer = StringBuffer()
-        stringBuffer.append("\n----- Remote Control -----\n")
-
+        val stringBuff = StringBuffer()
+        stringBuff.append("\n------ Remote Control -------\n")
         for (i in this.onCommands.indices) {
-            val onCommandName = this.onCommands[i].javaClass.simpleName
-            val offCommandName = this.offCommands[i].javaClass.simpleName
-            stringBuffer.append("[slot $i] ${onCommandName.padEnd(25)} ${offCommandName}\n")
+            stringBuff.append(
+                """[slot $i] ${this.onCommands[i].javaClass.name}    ${this.offCommands[i].javaClass.name}
+"""
+            )
         }
-
-        return stringBuffer.toString()
+        return stringBuff.toString()
     }
 }

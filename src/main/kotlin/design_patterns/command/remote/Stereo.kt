@@ -1,6 +1,6 @@
-package design_patterns.command.old.party
+package design_patterns.command.remote
 
-class Stereo(var location: String) {
+class Stereo(val location: String) {
     fun on() {
         println("${this.location} stereo is on")
     }
@@ -24,6 +24,6 @@ class Stereo(var location: String) {
     fun setVolume(volume: Int) {
         // code to set the volume
         // valid range: 1-11 (after all 11 is better than 10, right?)
-        println("${this.location} Stereo volume set to $volume")
+        println("${this.location} stereo volume set to $volume")
     }
 }

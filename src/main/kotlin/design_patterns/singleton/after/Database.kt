@@ -12,12 +12,12 @@ internal class Database private constructor() {
         val instance: Database?
             get() {
                 // create object if it's not already created
-                if (dbObject == null) {
-                    dbObject = Database()
+                if (this.dbObject == null) {
+                    this.dbObject = Database()
                 }
 
                 // returns the singleton object
-                return dbObject
+                return this.dbObject
             }
     }
 }

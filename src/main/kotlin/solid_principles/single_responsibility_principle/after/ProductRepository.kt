@@ -4,7 +4,7 @@ class ProductRepository {
     private val products = mutableSetOf<Product>()
 
     fun add(product: Product) {
-        if (products.contains(product)) {
+        if (this.products.contains(product)) {
             throw Exception("Product with id '${product.id}' already exists")
         }
         this.products.add(product)
@@ -15,7 +15,7 @@ class ProductRepository {
     }
 
     fun update(product: Product) {
-        if (!products.contains(product)) {
+        if (!this.products.contains(product)) {
             throw Exception("Product with id '${product.id}' does not exist yet")
         }
         this.products.add(product)

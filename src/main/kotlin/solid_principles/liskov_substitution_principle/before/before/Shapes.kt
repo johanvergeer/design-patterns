@@ -5,7 +5,7 @@ open class Rectangle(open var width: Int, open var height: Int) {
         get() = this.width * this.height
 
     val perimiter
-        get() = (width + height) * 2
+        get() = (this.width + this.height) * 2
 }
 
 class Square(side: Int) : Rectangle(side, side) {

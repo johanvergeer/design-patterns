@@ -7,9 +7,9 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper
 class XMLBookSerializer : Serializer {
     override fun serialize(book: Book): String {
         val xmlMapper = XmlMapper(
-            JacksonXmlModule().apply { setDefaultUseWrapper(false) }
+            JacksonXmlModule().apply { this.setDefaultUseWrapper(false) }
         ).apply {
-            enable(SerializationFeature.INDENT_OUTPUT)
+            this.enable(SerializationFeature.INDENT_OUTPUT)
         }
         return xmlMapper.writeValueAsString(book)
     }

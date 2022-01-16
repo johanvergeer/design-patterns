@@ -1,8 +1,8 @@
 package design_patterns.command.old
 
 class RemoteControlWithUndo {
-    private val onCommands = initiateCommands()
-    private val offCommands = initiateCommands()
+    private val onCommands = this.initiateCommands()
+    private val offCommands = this.initiateCommands()
     private var undoComand: Command = NoCommand()
 
     private fun initiateCommands(): Array<Command> {
@@ -16,16 +16,16 @@ class RemoteControlWithUndo {
 
     fun onButtonWasPushed(slot: Int) {
         this.onCommands[slot].execute()
-        this.undoComand = onCommands[slot]
+        this.undoComand = this.onCommands[slot]
     }
 
     fun offButtonWasPushed(slot: Int) {
         this.offCommands[slot].execute()
-        this.undoComand = offCommands[slot]
+        this.undoComand = this.offCommands[slot]
     }
 
     fun undoButtonWasPushed() {
-        undoComand.undo()
+        this.undoComand.undo()
 
         this.undoComand = NoCommand()
     }
@@ -34,13 +34,13 @@ class RemoteControlWithUndo {
         val stringBuffer = StringBuffer()
         stringBuffer.append("\n----- Remote Control -----\n")
 
-        for (i in onCommands.indices) {
-            val onCommandName = onCommands[i].javaClass.simpleName
-            val offCommandName = offCommands[i].javaClass.simpleName
+        for (i in this.onCommands.indices) {
+            val onCommandName = this.onCommands[i].javaClass.simpleName
+            val offCommandName = this.offCommands[i].javaClass.simpleName
             stringBuffer.append("[slot $i] ${onCommandName.padEnd(25)} ${offCommandName}\n")
         }
 
-        stringBuffer.append("[undo] ${undoComand.javaClass.simpleName}")
+        stringBuffer.append("[undo] ${this.undoComand.javaClass.simpleName}")
         stringBuffer.append("\n")
 
         return stringBuffer.toString()

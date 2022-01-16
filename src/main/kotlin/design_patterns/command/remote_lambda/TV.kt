@@ -12,7 +12,7 @@ class TV(var location: String) {
     }
 
     fun setInputChannel() {
-        channel = 3
+        this.channel = 3
         println("Channel is set for VCR")
     }
 }

@@ -5,25 +5,25 @@ class CeilingFan(val location: String = "") {
 
     fun high() {
         // turns the ceiling fan on to high
-        speed = CeilingFanSpeed.HIGH
-        println("$location ceiling fan is on high")
+        this.speed = CeilingFanSpeed.HIGH
+        println("${this.location} ceiling fan is on high")
     }
 
     fun medium() {
         // turns the ceiling fan on to medium
-        speed = CeilingFanSpeed.MEDIUM
-        println("$location ceiling fan is on medium")
+        this.speed = CeilingFanSpeed.MEDIUM
+        println("${this.location} ceiling fan is on medium")
     }
 
     fun low() {
         // turns the ceiling fan on to low
-        speed = CeilingFanSpeed.LOW
-        println("$location ceiling fan is on low")
+        this.speed = CeilingFanSpeed.LOW
+        println("${this.location} ceiling fan is on low")
     }
 
     fun off() {
         // turns the ceiling fan off
-        speed = CeilingFanSpeed.OFF
-        println("$location ceiling fan is off")
+        this.speed = CeilingFanSpeed.OFF
+        println("${this.location} ceiling fan is off")
     }
 }

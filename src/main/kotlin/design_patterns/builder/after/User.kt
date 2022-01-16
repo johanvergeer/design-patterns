@@ -8,7 +8,7 @@ class User internal constructor(builder: Builder) {
     val address = builder.address
 
     override fun toString(): String {
-        return "User: $firstName $lastName, $age years old, $phone, $address"
+        return "User: ${this.firstName} ${this.lastName}, ${this.age} years old, ${this.phone}, ${this.address}"
     }
 
     class Builder(internal val firstName: String, internal val lastName: String) {

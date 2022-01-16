@@ -75,19 +75,8 @@ val installPreCommitHooks by tasks.creating(Copy::class) {
         }
 
     from("scripts/pre-commit-$suffix")
-        .into(".git/hooks")
-        .rename("pre-commit-$suffix", "pre-commit")
-
-    fileMode = 775
+    into(".git/hooks")
+    rename("pre-commit-$suffix", "pre-commit")
 }
 
-//task installGitHook(type: Copy) {
-//    def suffix = "macos"
-//    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-//        suffix = "windows"
-//    }
-//    from new File(rootProject.rootDir, "scripts/pre-commit-$suffix")
-//    into { new File(rootProject.rootDir, '.git/hooks') }
-//    rename("pre-commit-$suffix", 'pre-commit')
-//    fileMode 0775
-//}
+tasks.findByName("build")?.dependsOn("installPreCommitHooks")

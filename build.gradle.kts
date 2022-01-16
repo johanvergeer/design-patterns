@@ -1,4 +1,6 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.apache.tools.ant.taskdefs.condition.Os.isFamily
+import org.apache.tools.ant.taskdefs.condition.Os.FAMILY_WINDOWS
 
 plugins {
     kotlin("jvm") version "1.6.10"
@@ -60,3 +62,32 @@ val ktlintFormat by tasks.creating(JavaExec::class) {
     inputs.files(inputFiles)
     outputs.dir(outputDir)
 }
+
+val installPreCommitHooks by tasks.creating(Copy::class) {
+    group = "formatting"
+    description = "Install custom pre-commit hooks"
+
+    val suffix =
+        if (isFamily(FAMILY_WINDOWS)) {
+            "windows"
+        } else {
+            "macos"
+        }
+
+    from("scripts/pre-commit-$suffix")
+        .into(".git/hooks")
+        .rename("pre-commit-$suffix", "pre-commit")
+
+    fileMode = 775
+}
+
+//task installGitHook(type: Copy) {
+//    def suffix = "macos"
+//    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+//        suffix = "windows"
+//    }
+//    from new File(rootProject.rootDir, "scripts/pre-commit-$suffix")
+//    into { new File(rootProject.rootDir, '.git/hooks') }
+//    rename("pre-commit-$suffix", 'pre-commit')
+//    fileMode 0775
+//}

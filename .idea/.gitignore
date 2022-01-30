@@ -18,3 +18,4 @@ modules.xml
 *.iml
 modules
 *.ipr
+.name

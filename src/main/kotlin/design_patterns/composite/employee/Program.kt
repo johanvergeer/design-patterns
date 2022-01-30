@@ -1,5 +1,16 @@
 package design_patterns.composite.employee
 
+data class Employee(val name: String, var department: String, var salary: Double) {
+    private val _subordinates = mutableListOf<Employee>()
+
+    val subordinates
+        get() = this._subordinates.toList()
+
+    fun add(employee: Employee) = this._subordinates.add(employee)
+
+    fun remove(employee: Employee) = this._subordinates.remove(employee)
+}
+
 fun main() {
     val ceo = Employee("John", "CEO", 300_000.0)
     val headSales = Employee("Robert", "Head Sales", 200_000.0)

@@ -1,5 +1,38 @@
 package design_patterns.composite.html
 
+abstract class HtmlElement {
+    private val _children = mutableListOf<HtmlElement>()
+
+    val children
+        get() = this._children.toList()
+
+    var innerText = ""
+
+    abstract val tagName: String
+
+    val openingTag: String
+        get() = "<${this.tagName}>"
+
+    val closingTag: String
+        get() = "</${this.tagName}>"
+
+    fun add(child: HtmlElement) {
+        this._children.add(child)
+    }
+}
+
+class Body : HtmlElement() {
+    override val tagName: String = "body"
+}
+
+class Div : HtmlElement() {
+    override val tagName: String = "div"
+}
+
+class P : HtmlElement() {
+    override val tagName: String = "p"
+}
+
 fun main() {
     val body = Body()
 
@@ -7,8 +40,12 @@ fun main() {
     val p = P()
     p.innerText = "Hello, World!"
 
+    val p2 = P()
+    p2.innerText = "Hello, new World!"
+
     body.add(div)
     div.add(p)
+    div.add(p2)
 
     printHtml(body)
 }

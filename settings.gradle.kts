@@ -1,3 +1,3 @@
 
-rootProject.name = "ordina-design-patterns-training"
+rootProject.name = "design-patterns"
 

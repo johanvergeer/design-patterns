@@ -12,7 +12,7 @@ class TestPay {
 
         val money = listOf(money1, money2)
 
-        val moneyHandler = MoneyHandlerImpl(money)
+        val moneyHandler = HumanMoneyHandler(money)
 
         val receivedMoney = moneyHandler.getMoney(15.0)
 
